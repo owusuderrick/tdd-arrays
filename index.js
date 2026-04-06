@@ -11,6 +11,7 @@
  */
 export function getFirst(array) {
   // TODO
+  return array[0];
 }
 
 /**
@@ -26,6 +27,7 @@ export function getFirst(array) {
  */
 export function getLast(array) {
   // TODO
+  return array[array.length - 1];
 }
 
 /**
@@ -43,6 +45,13 @@ export function getLast(array) {
  */
 export function getFirstLast(array) {
   // TODO
+  if (array.length === 0) {
+    return [];
+  }
+  if (array.length === 1) {
+    return [array[0]];
+  }
+  return [array[0], array[array.length - 1]];
 }
 
 /**
@@ -60,6 +69,10 @@ export function getFirstLast(array) {
  */
 export function sharesFirstLetter(str1, str2) {
   // TODO
+  if (str1.length === 0 || str2.length === 0) {
+    return false;
+  }
+  return str1[0] === str2[0];
 }
 
 /**
@@ -75,6 +88,10 @@ export function sharesFirstLetter(str1, str2) {
  */
 export function quintuple(numbers) {
   // TODO
+  for (let i = 0; i < numbers.length; i++) {
+    result.push(numbers[i] * 5);
+  }
+  return result;
 }
 
 /**
@@ -96,6 +113,19 @@ export function quintuple(numbers) {
  */
 export function pluralize(words) {
   // TODO
+  const result = [];
+
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+
+    if (word.endsWith("s")) {
+      result.push(word + "es");
+    } else {
+      result.push(word + "s");
+    }
+  }
+
+  return result;
 }
 
 /**
@@ -113,6 +143,13 @@ export function pluralize(words) {
  */
 export function countAttendance(attendance) {
   // TODO
+  let count = 0;
+  for (let i = 0; i < attendance.length; i++) {
+    if (attendance[i] === true) {
+      count++;
+    }
+  }
+  return count;
 }
 
 /**
@@ -129,6 +166,19 @@ export function countAttendance(attendance) {
  */
 export function getLongestWord(sentence) {
   // TODO
+  if (sentence.length === 0) {
+    return null;
+  }
+
+  let longest = sentence[0];
+
+  for (let i = 1; i < sentence.length; i++) {
+    if (sentence[i].length > longest.length) {
+      longest = sentence[i];
+    }
+  }
+
+  return longest;
 }
 
 /**
@@ -146,6 +196,12 @@ export function getLongestWord(sentence) {
  */
 export function findSong(playlist, song) {
   // TODO
+  for (let i = 0; i < playlist.length; i++) {
+    if (playlist[i] === song) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
